@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    // <Hello name="TypeScript" enthusiasmLevel={10}/>,
+    document.getElementById('root') as HTMLElement
 );
 
 // If you want to start measuring performance in your app, pass a function
