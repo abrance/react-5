@@ -1,5 +1,5 @@
 import {MainProps} from "../types";
-import {MenuProps, Tree} from "antd";
+import {Tree} from "antd";
 import React from "react";
 import {Breadcrumb} from "antd";
 
@@ -30,11 +30,11 @@ export class BreadCrumbTreeMixin extends React.Component<MainProps, object>{
         super(props);
     }
 
-    const onSelect = (keys: React.Key[], info: any) => {
+    onSelect(keys: React.Key[], info: any){
         console.log('Trigger Select', keys, info);
     };
 
-    const onExpand = () => {
+    onExpand(){
         console.log('Trigger Expand');
     };
 
@@ -59,8 +59,8 @@ export class BreadCrumbTreeMixin extends React.Component<MainProps, object>{
                 <DirectoryTree
                     multiple
                     defaultExpandAll
-                    onSelect={onSelect}
-                    onExpand={onExpand}
+                    onSelect={this.onSelect}
+                    onExpand={this.onExpand}
                     treeData={treeData}
                 />
 

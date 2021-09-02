@@ -1,24 +1,33 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import {Button} from "antd";
-import { SearchBox } from './components/searchBox/searchBox';
-import {Topbar} from './components/topbar/topbar';
-import {BreadCrumbTreeMixin} from "./components/breadCrumb/breadCrumbTreeMixin";
+import TopBar from './components/topbar/topbar';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import {RegistrationForm} from "./containers/login/register"
+import {login} from "./page/signIn";
+import {Download} from "./page/download";
+import {Upload} from "./page/upload";
+
 
 function App() {
     return (
-        <div className="app">
-            <header className="header">
-              {/*<Button type="primary">Button</Button>*/}
-              {/*<SearchBox />*/}
-              <Topbar />
+        <Router>
+            <div className="app">
+                <header className="header">
+                  {/*<Button type="primary">Button</Button>*/}
+                  {/*<SearchBox />*/}
+                  <TopBar />
 
-            </header>
-            <section>
-                <BreadCrumbTreeMixin />
-            </section>
-        </div>
+                </header>
+                {/*<section>*/}
+                {/*    <BreadCrumbTreeMixin />*/}
+                {/*</section>*/}
+
+                <Route path='/sign_in' component={login} exact/>
+                <Route path='/register' component={RegistrationForm} exact/>
+                <Route path='/download' component={Download} exact/>
+                <Route path='/upload' component={Upload} exact/>
+            </div>
+        </Router>
     );
 }
 
